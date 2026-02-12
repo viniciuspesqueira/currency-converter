@@ -1,8 +1,10 @@
+
+
 :root {
   --textcolor: white;
-  --bgcolor: black;
-  --footerbgcolor: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.50) 14%, black 28%);
-  --bg-url: url(https://raw.githubusercontent.com/viniciuspesqueira/Currency-Converter/refs/heads/master/assets/vector/background_desktop.svg);
+  --footerbgcolor: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #202020 14%, #202020 28%);
+  --bg-url-desktop: url(./assets/vector/background-desktop-black.svg);
+  --bg-url-mobile: url(./assets/vector/background-mobile-black.svg);
   --stroke-color: rgba(255, 255, 255, 0.5);
   --stroke-color-hover: white;
   --surface-color: rgba(255, 255, 255, 0.1);
@@ -16,9 +18,9 @@
 
 .light {
   --textcolor: black;
-  --bgcolor: #FAFAFA;
   --footerbgcolor: linear-gradient(180deg, rgba(250, 250, 250, 0.00) 0%, rgba(250, 250, 250, 0.50) 14%, #FAFAFA 28%);
-  --bg-url: url(https://raw.githubusercontent.com/viniciuspesqueira/Currency-Converter/refs/heads/master/assets/vector/background_desktop.svg);
+  --bg-url-desktop: url(./assets/vector/background-desktop-white.svg);
+  --bg-url-mobile: url(./assets/vector/background-mobile-white.svg);
   --stroke-color: rgba(0, 0, 0, 0.5);
   --stroke-color-hover: black;
   --surface-color: rgba(0, 0, 0, 0.05);
@@ -34,17 +36,20 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-@media (max-width: 390px) {
+@media (max-width: 460px) {
   body {
-    background: url(assets/vector/background_mobile.svg) no-repeat center;
+    background: var(--bg-url-mobile) no-repeat center;
     background-size: cover;
   }
 }
 
-@media (min-width: 390px) {
+@media (min-width: 460px) {
   body {
-    background: url(assets/vector/background_desktop.svg) no-repeat center;
+    background: var(--bg-url-desktop) no-repeat center;
     background-size: cover;
+  }
+  main {
+    transform: scale(1.2);
   }
 }
 
@@ -84,7 +89,7 @@
 }
 
 body {
-  background-color: var(--bgcolor);
+  padding: 0;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -92,19 +97,14 @@ body {
 
 main {
   margin: auto;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  margin-top: 3.6rem;
-  gap: 1.44rem;
-  align-items: center;
+  flex: 1;
+  padding-top: 5rem;
 }
 
 footer {
   display: flex;
   flex-direction: column;
   padding-top: 2.4rem;
-  gap: 1.2rem;
   align-items: center;
   background: var(--footerbgcolor);
   font-size: 0.72rem;
@@ -135,12 +135,14 @@ footer a:hover {
 }
 
 #coins {
+  padding: 1.44rem;
   display: flex;
   flex-direction: row;
 }
 
 .coinsection {
   display: flex;
+  gap: 0.6rem;
   flex-direction: column;
   align-items: center;
 }
@@ -197,6 +199,7 @@ footer a:hover {
 }
 
 #boxes {
+  padding: 0.6rem;
   display: flex;
   flex-direction: row;
   max-width: 300%;
@@ -205,6 +208,7 @@ footer a:hover {
 
 .box {
   display: flex;
+  margin: auto;
   flex-direction: row;
   gap: 0.6rem;
   justify-content: center;
@@ -253,7 +257,9 @@ footer a:hover {
 }
 
 #lastupdate {
-  font-size: 0.6rem;
+  margin: auto;
+  width: 18rem;
+  font-size: 0.7rem;
   text-align: center;
   color: var(--textcolor);
 }
